@@ -22,6 +22,10 @@ void loop() {
   int us = sonar.ping_in();
   microbit.matrix.print(us);
   Serial.println(us);
-  delay(1000);
-
+  if(us>5) {
+    bot.setSpeed(20);
+    bot.forward();
+  } else {
+    bot.stop();
+  }
 }
